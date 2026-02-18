@@ -128,8 +128,12 @@
                 </ul>
                 
                 <div class="d-lg-flex ms-lg-3">
-                    <a href="https://webmakeruser1.wordpress.com/membership/?fbclid=IwY2xjawPn2kpleHRuA2FlbQIxMABicmlkETFKd0xrWnU0VDJNMGgyTjhQc3J0YwZHcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHn2ABXzKdfCUKghmA6gVontmW2o1Mi0UcbXN0flm-rMquyp_TG1UGqt4lDtT_aem_gv8L-3fWKaHcCmvNomMLBg" class="btn-cta">Join Now <i class="fas fa-arrow-right ms-1"></i></a>
+                    <a href="/login" class="btn btn-hero">
+    Join Now <i class="fas fa-arrow-right ms-2"></i>
+</a>
+
                 </div>
+
             </div>
         </div>
     </nav>
@@ -158,7 +162,7 @@
                             Professional web development, game creation, database management, and digital solutions crafted with expertise and innovation.
                         </p>
                         <div class="hero-buttons d-flex flex-wrap gap-3">
-                            <a href="https://webmakeruser1.wordpress.com/membership/?fbclid=IwY2xjawPn2kpleHRuA2FlbQIxMABicmlkETFKd0xrWnU0VDJNMGgyTjhQc3J0YwZHcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHn2ABXzKdfCUKghmA6gVontmW2o1Mi0UcbXN0flm-rMquyp_TG1UGqt4lDtT_aem_gv8L-3fWKaHcCmvNomMLBg" class="btn btn-hero">
+                            <a href="/login" class="btn btn-hero">
                                 Join Now <i class="fas fa-arrow-right ms-2"></i>
                             </a>
                             <a href="#services" class="btn btn-secondary">
@@ -484,7 +488,7 @@
                 </div>
                 <h2 class="mb-4">Ready to Create Magic Together?</h2>
                 <p class="mb-5">Join our community and let's transform your digital dreams into reality</p>
-                <a href="https://webmakeruser1.wordpress.com/membership/?fbclid=IwY2xjawPn2kpleHRuA2FlbQIxMABicmlkETFKd0xrWnU0VDJNMGgyTjhQc3J0YwZHcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHn2ABXzKdfCUKghmA6gVontmW2o1Mi0UcbXN0flm-rMquyp_TG1UGqt4lDtT_aem_gv8L-3fWKaHcCmvNomMLBg" class="btn btn-cta-large">
+                <a href="/login" class="btn btn-cta-large">
                     Join Now <i class="fas fa-arrow-right ms-2"></i>
                 </a>
             </div>
@@ -550,7 +554,7 @@
             const navbar = document.querySelector('.navbar');
             window.addEventListener('scroll', function() {
                 if (window.scrollY > 50) {
-                    navb    ar.classList.add('scrolled');
+                    navbar.classList.add('scrolled');
                 } else {
                     navbar.classList.remove('scrolled');
                 }
