@@ -71,6 +71,20 @@
 
                 <h3 class="text-center mb-4">Complete Your Registration</h3>
 
+                {{-- SUCCESS MESSAGE --}}
+                @if(session('success'))
+                    <div class="alert alert-success text-center" id="successMessage">
+                        {{ session('success') }}
+                    </div>
+
+                    <script>
+                        // Redirect automatically after 3 seconds
+                        setTimeout(function() {
+                            window.location.href = "/";
+                        }, 3000);
+                    </script>
+                @endif
+
                 <p class="text-center mb-5">
                     Please choose your preferred payment method to activate your student account.
                 </p>
@@ -105,7 +119,6 @@
                     </div>
 
                     <form method="POST" action="{{ route('payment.process') }}">
-
                         @csrf
                         <input type="hidden" name="payment_method" value="cash">
 
@@ -121,13 +134,13 @@
 
                     <div class="text-center mb-4">
                         <p>Scan the QR Code below:</p>
-                        <img src="{{ asset('assets/gcash-qr.png') }}"
+                        <img src="{{ asset('assets/qrcode.jpg') }}"
                              alt="GCash QR Code"
                              class="img-fluid"
                              style="max-width:250px;">
                     </div>
 
-                    <form method="POST" action="#" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('payment.process') }}" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="payment_method" value="gcash">
 

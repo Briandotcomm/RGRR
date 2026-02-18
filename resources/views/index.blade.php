@@ -299,7 +299,7 @@
                         <div class="service-icon">
                             <i class="fas fa-medal"></i>
                         </div>
-                        <h3>ROTC Data Management</h3>
+                        <h3>Data Management</h3>
                         <ul class="list-unstyled">
                             <li><i class="fab fa-html5 me-2"></i> HTML/CSS/JavaScript</li>
                             <li><i class="fab fa-php me-2"></i> PHP Backend</li>

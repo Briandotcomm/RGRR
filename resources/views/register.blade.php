@@ -22,8 +22,9 @@
 
                     <h3 class="text-center mb-4">Student Registration</h3>
 
-                    <form method="POST" action="#" enctype="multipart/form-data">
-                        @csrf
+                   <form method="POST" action="{{ route('register.process') }}" enctype="multipart/form-data">
+                      @csrf
+
 
                         <!-- Name -->
                         <div class="mb-3">
