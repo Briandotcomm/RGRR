@@ -22,28 +22,69 @@
                     <form method="POST" action="{{ route('login.perform') }}">
                         @csrf
 
+                        <!-- Email -->
                         <div class="mb-3">
-                            <label class="form-label">Email</label>
-                            <input type="email" name="email" class="form-control" required>
+                            <input 
+                                type="email" 
+                                name="email" 
+                                class="form-control"
+                                placeholder="Email"
+                                required
+                            >
                         </div>
 
+                        <!-- Password -->
                         <div class="mb-3">
-                            <label class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control" required>
+                            <input 
+                                type="password" 
+                                name="password" 
+                                class="form-control"
+                                placeholder="Password"
+                                required
+                            >
                         </div>
 
-                        <div class="d-grid">
+                        <!-- Remember Me + Forgot Password -->
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+
+                            <div class="form-check">
+                                <input 
+                                    class="form-check-input" 
+                                    type="checkbox" 
+                                    name="remember" 
+                                    id="remember"
+                                >
+                                <label class="form-check-label" for="remember">
+                                    Remember me
+                                </label>
+                            </div>
+
+                            <a href="/forgot-password" class="small text-decoration-none">
+                                Forgot password?
+                            </a>
+
+                        </div>
+
+                        <!-- Button -->
+                        <div class="d-grid mb-3">
                             <button type="submit" class="btn btn-primary">
                                 Login
                             </button>
                         </div>
+
                     </form>
 
-                    <div class="text-center mt-3">
+                    <div class="text-center">
                         <small>
                             No account yet?
-                            <a href="/register">Register</a>
+                            <a href="/register" class="text-decoration-none">Register</a>
                         </small>
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <a href="/" class="btn btn-outline-secondary btn-sm">
+                            ← Back to Landing Page
+                        </a>
                     </div>
 
                 </div>
