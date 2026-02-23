@@ -73,7 +73,7 @@ html {
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     z-index: 1000;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border-bottom: 1px solid rgba(59, 130, 246, 0.15);
 }
@@ -522,6 +522,130 @@ html {
     transform: translate(-50%, -50%) scale(2.5);
     z-index: 10;
     filter: drop-shadow(0 10px 30px rgba(59, 130, 246, 0.3));
+}
+
+
+/* About Us Section Styles */
+.about-us-section {
+    background: #151F39; 
+    padding-top: 60px; 
+    text-align: center; 
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff; 
+    margin-bottom: 1.5rem;
+}
+
+.section-description {
+    font-size: 1.1rem;
+    color: #e2e8f0; 
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    width: 100%; 
+    display: block; 
+}
+
+/* Styling the video to make it look more rounded */
+.video-container video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Rounds the edges of the video */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .about-us-section {
+        padding-top: 40px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-description {
+        font-size: 1rem;
+        text-align: justify; 
+    }
+
+    .video-container {
+        margin-top: 40px 0;
+    }
+}
+
+/* Advantage Section Styles */
+.advantage-section {
+    background-color: #151F39;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 1.5rem;
+}
+
+.section-description {
+    font-size: 1.1rem;
+    color: #e2e8f0;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.advantage-card {
+    background-color: #1e2a47;
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.advantage-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+}
+
+.advantage-card .icon {
+    margin-bottom: 20px;
+    color: #8b5cf6; /* Primary Icon Color */
+}
+
+.advantage-card h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.advantage-card p {
+    font-size: 1rem;
+    color: #d1d1d1;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .advantage-card {
+        padding: 20px;
+    }
+
+    .advantage-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .advantage-card p {
+        font-size: 0.9rem;
+    }
 }
 
 /* Enhanced Services Section */
