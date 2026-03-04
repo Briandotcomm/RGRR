@@ -13,7 +13,7 @@
       --card: #0c1228;
       --accent: #2563eb;
       --accent2: #c8290a;
-      --accent3: #f5a623;
+      --accent3: #e05a3a;
       --accent4: #ef4444;
       --text: #e8eaf5;
       --muted: #7888a8;
@@ -222,7 +222,7 @@
     }
 
     .hero h1 .grad {
-      background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -296,29 +296,39 @@
     .magic-circle {
       position: absolute;
       border-radius: 50%;
-      border: 1px solid rgba(37,99,235,0.2);
+      border: 1px solid rgba(37,99,235,0.25);
       animation: spin 20s linear infinite;
     }
 
-    .circle-1 { width: 200px; height: 200px; animation-duration: 15s; }
-    .circle-2 { width: 300px; height: 300px; animation-duration: 25s; animation-direction: reverse; border-color: rgba(200,41,10,0.15); }
-    .circle-3 { width: 380px; height: 380px; animation-duration: 35s; border-color: rgba(245,166,35,0.1); }
+    /* Blue/red only circles */
+    .circle-1 { width: 220px; height: 220px; animation-duration: 15s; border-color: rgba(37,99,235,0.3); }
+    .circle-2 { width: 330px; height: 330px; animation-duration: 25s; animation-direction: reverse; border-color: rgba(200,41,10,0.2); }
+    .circle-3 { width: 420px; height: 420px; animation-duration: 35s; border-color: rgba(37,99,235,0.12); }
 
     @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
+    /* UPDATED: Transparent orb — no black background */
     .wizard-orb {
-      width: 200px;
-      height: 200px;
+      width: 320px;
+      height: 320px;
       border-radius: 50%;
-      background: #000;
+      background: transparent;
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 1;
-      box-shadow: 0 0 60px rgba(37,99,235,0.5), 0 0 120px rgba(200,41,10,0.2);
+      box-shadow: 0 0 60px rgba(37,99,235,0.45), 0 0 120px rgba(200,41,10,0.2);
       animation: float 4s ease-in-out infinite;
-      overflow: hidden;
+      overflow: visible;
       border: 2px solid rgba(37,99,235,0.3);
+    }
+
+    .wizard-orb img {
+      width: 300px;
+      height: 300px;
+      object-fit: contain;
+      border-radius: 50%;
+      filter: drop-shadow(0 0 18px rgba(37,99,235,0.6)) drop-shadow(0 0 8px rgba(200,41,10,0.4));
     }
 
     @keyframes float {
@@ -340,11 +350,12 @@
 
     .stat-item { text-align: center; }
 
+    /* Blue/red only gradient on numbers */
     .stat-item .number {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
       font-size: 2.5rem;
-      background: linear-gradient(135deg, var(--accent3), var(--accent));
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -408,7 +419,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(37,99,235,0.12), rgba(200,41,10,0.08), rgba(245,166,35,0.06));
+      background: linear-gradient(135deg, rgba(37,99,235,0.12), rgba(200,41,10,0.08));
     }
 
     .about-orb {
@@ -445,7 +456,7 @@
 
     .about-stat:nth-child(1) .num { color: var(--accent); }
     .about-stat:nth-child(2) .num { color: var(--accent2); }
-    .about-stat:nth-child(3) .num { color: var(--accent3); }
+    .about-stat:nth-child(3) .num { color: var(--accent); }
     .about-stat .lbl { color: var(--muted); font-size: 0.78rem; margin-top: 2px; }
 
     /* ---- ADVANTAGE ---- */
@@ -540,14 +551,15 @@
     .svc-card ul li:last-child { border-bottom: none; }
     .svc-card ul li i { font-size: 0.65rem; flex-shrink: 0; }
 
-    .card-blue .svc-icon { color: #2563eb; }
-    .card-purple .svc-icon { color: #c8290a; }
-    .card-red .svc-icon { color: #ef4444; }
-    .card-cyan .svc-icon { color: #f5a623; }
+    /* Blue/red only icon colors */
+    .card-blue .svc-icon   { color: var(--accent); }
+    .card-purple .svc-icon { color: var(--accent2); }
+    .card-red .svc-icon    { color: var(--accent4); }
+    .card-cyan .svc-icon   { color: var(--accent); }
     .card-indigo .svc-icon { color: #1d4ed8; }
-    .card-green .svc-icon { color: #10b981; }
-    .card-yellow .svc-icon { color: #f59e0b; }
-    .card-pink .svc-icon { color: #ef4444; }
+    .card-green .svc-icon  { color: var(--accent); }
+    .card-yellow .svc-icon { color: var(--accent2); }
+    .card-pink .svc-icon   { color: var(--accent4); }
 
     /* ---- WHY CHOOSE US ---- */
     .why-grid {
@@ -615,7 +627,7 @@
     .contact-card h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 12px; }
     .contact-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
     .contact-card a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
-    .contact-card a:hover { color: var(--accent3); }
+    .contact-card a:hover { color: var(--accent2); }
 
     /* ---- CTA ---- */
     .cta-section {
@@ -896,14 +908,15 @@
       line-height: 1.6;
     }
 
+    /* Coming soon badge — blue/red only */
     .coming-badge {
       display: inline-block;
       font-family: 'DM Sans', sans-serif;
       font-size: 0.65rem;
       font-weight: 500;
-      background: rgba(245,166,35,0.15);
-      color: #f5a623;
-      border: 1px solid rgba(245,166,35,0.3);
+      background: rgba(200,41,10,0.15);
+      color: var(--accent3);
+      border: 1px solid rgba(200,41,10,0.3);
       padding: 2px 8px;
       border-radius: 999px;
       letter-spacing: 0.05em;
@@ -955,6 +968,7 @@
       <li><a href="#services">Services</a></li>
       <li><a href="#why-choose-us">Why Choose Us?</a></li>
       <li><a href="#contact">Contact Us</a></li>
+      <li><a href="#organization">Organization</a></li>
     </ul>
 
     <div class="nav-actions">
@@ -984,7 +998,7 @@
           <div class="magic-circle circle-3"></div>
         </div>
         <div class="wizard-orb">
-          <img src="{{ asset('assets/logo_main.png') }}" alt="RGRR Wizard" style="width:100%;height:100%;object-fit:contain;border-radius:50%;" onerror="this.style.display='none'" />
+          <img src="{{ asset('assets/logo_main.png') }}" alt="RGRR Wizard" />
         </div>
       </div>
     </div>
@@ -1006,7 +1020,7 @@
     </div>
     <div class="stat-item">
       <div class="number">Global</div>
-      <div class="label">Reach & Growing</div>
+      <div class="label">Reach &amp; Growing</div>
     </div>
   </div>
 
@@ -1038,7 +1052,7 @@
             <div class="lbl">Filipino-Owned</div>
           </div>
           <div class="about-stat">
-            <div class="num">PH & Beyond</div>
+            <div class="num">PH &amp; Beyond</div>
             <div class="lbl">Customer Reach</div>
           </div>
         </div>
@@ -1068,14 +1082,14 @@
           <p>Rapid development without compromising quality. We respect deadlines and deliver on time, every time.</p>
         </div>
         <div class="adv-card">
-          <div class="adv-icon" style="background: rgba(239,68,68,0.12); color: var(--accent4);">
+          <div class="adv-icon" style="background: rgba(37,99,235,0.12); color: var(--accent);">
             <i class="fas fa-headset"></i>
           </div>
           <h3>24/7 Support</h3>
           <p>Round-the-clock technical support to ensure your digital solutions run smoothly at all times.</p>
         </div>
         <div class="adv-card">
-          <div class="adv-icon" style="background: rgba(245,166,35,0.12); color: var(--accent3);">
+          <div class="adv-icon" style="background: rgba(200,41,10,0.12); color: var(--accent2);">
             <i class="fas fa-shield-alt"></i>
           </div>
           <h3>Secure Solutions</h3>
@@ -1085,7 +1099,7 @@
           <div class="adv-icon" style="background: rgba(37,99,235,0.12); color: var(--accent);">
             <i class="fas fa-globe-asia"></i>
           </div>
-          <h3>Government & Private Trust</h3>
+          <h3>Government &amp; Private Trust</h3>
           <p>Trusted by both government agencies and private companies across the Philippines and internationally.</p>
         </div>
         <div class="adv-card">
@@ -1151,7 +1165,7 @@
             </div>
           </div>
           <div class="svc-item svc-item-coming">
-            <div class="svc-item-icon" style="background:rgba(245,166,35,0.12);color:#f5a623;"><i class="fas fa-search"></i></div>
+            <div class="svc-item-icon" style="background:rgba(200,41,10,0.12);color:#c8290a;"><i class="fas fa-search"></i></div>
             <div class="svc-item-text">
               <strong>SEO <span class="coming-badge">Coming Soon</span></strong>
               <span>Search engine optimization services to help your website rank higher and reach more customers.</span>
@@ -1229,7 +1243,7 @@
         </div>
 
         <div class="why-card-new">
-          <div class="why-card-icon" style="background:rgba(245,166,35,0.12);color:#f5a623;">
+          <div class="why-card-icon" style="background:rgba(200,41,10,0.12);color:#f87171;">
             <i class="fas fa-certificate"></i>
           </div>
           <div class="why-card-body">
@@ -1259,7 +1273,7 @@
         </div>
 
         <div class="why-card-new">
-          <div class="why-card-icon" style="background:rgba(245,166,35,0.12);color:#f5a623;">
+          <div class="why-card-icon" style="background:rgba(37,99,235,0.12);color:#60a5fa;">
             <i class="fas fa-copyright"></i>
           </div>
           <div class="why-card-body">
@@ -1269,7 +1283,7 @@
         </div>
 
         <div class="why-card-new">
-          <div class="why-card-icon" style="background:rgba(16,185,129,0.12);color:#34d399;">
+          <div class="why-card-icon" style="background:rgba(200,41,10,0.12);color:#f87171;">
             <i class="fas fa-headset"></i>
           </div>
           <div class="why-card-body">
@@ -1299,7 +1313,7 @@
         </div>
 
         <div class="why-card-new">
-          <div class="why-card-icon" style="background:rgba(16,185,129,0.12);color:#34d399;">
+          <div class="why-card-icon" style="background:rgba(37,99,235,0.12);color:#60a5fa;">
             <i class="fas fa-server"></i>
           </div>
           <div class="why-card-body">
@@ -1309,7 +1323,7 @@
         </div>
 
         <div class="why-card-new">
-          <div class="why-card-icon" style="background:rgba(245,166,35,0.12);color:#f5a623;">
+          <div class="why-card-icon" style="background:rgba(200,41,10,0.12);color:#f87171;">
             <i class="fas fa-cloud-upload-alt"></i>
           </div>
           <div class="why-card-body">
@@ -1351,7 +1365,7 @@
     <div class="cta-glow"></div>
     <h2>Ready to Create Magic Together?</h2>
     <p>Join our community and let's transform your digital dreams into reality.</p>
-    <a href="/register" class="cta-big">Join Now </a>
+    <a href="/register" class="cta-big">Join Now</a>
   </div>
 
   <!-- ===== FOOTER ===== -->
@@ -1389,7 +1403,6 @@
   </footer>
 
   <script>
-    // Scroll animation observer
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -1398,17 +1411,11 @@
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-    // Navbar scroll effect
     const navbar = document.querySelector('nav');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(4,4,10,0.95)';
-      } else {
-        navbar.style.background = 'rgba(4,4,10,0.75)';
-      }
+      navbar.style.background = window.scrollY > 50 ? 'rgba(4,4,10,0.95)' : 'rgba(4,4,10,0.75)';
     });
 
-    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         const target = document.querySelector(this.getAttribute('href'));

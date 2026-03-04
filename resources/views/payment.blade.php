@@ -543,7 +543,7 @@
       <div class="pay-topbar"></div>
       <div class="pay-card-body">
 
-        <h2 class="pay-title">Complete Your Registration 🧙</h2>
+        <h2 class="pay-title">Complete Your Registration </h2>
         <p class="pay-subtitle">Choose your preferred payment method below to activate your student account.</p>
 
         {{-- Success Message --}}
