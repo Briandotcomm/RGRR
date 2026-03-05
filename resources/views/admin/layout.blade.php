@@ -790,7 +790,7 @@
       <a href="{{ route('admin.members') }}" class="nav-item {{ request()->routeIs('admin.members*') ? 'active' : '' }}">
         <i class="fas fa-users nav-icon"></i>
         <span>Official Members</span>
-        <span class="nav-badge green">{{ $memberCount ?? 0 }}</span>
+        <span class="nav-badge green">{{ $officialMembersCount ?? 0 }}</span>
       </a>
 
       <a href="{{ route('admin.pending') }}" class="nav-item {{ request()->routeIs('admin.pending*') ? 'active' : '' }}">

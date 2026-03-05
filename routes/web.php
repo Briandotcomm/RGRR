@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\user\UserController;
 
 /* ================================================================
    PUBLIC ROUTES
@@ -13,13 +16,8 @@ Route::get('/', function () {
 })->name('home');
 
 // Login
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
-
-Route::post('/login', function () {
-    return "Login form submitted";
-})->name('login.perform');
+Route::get('/login',  [LoginController::class, 'show'])   ->name('login');
+Route::post('/login', [LoginController::class, 'process'])->name('login.perform');
 
 // Logout
 Route::post('/logout', function () {
@@ -28,8 +26,8 @@ Route::post('/logout', function () {
 })->name('logout');
 
 // Register
-Route::get('/register', [RegisterController::class, 'show'])->name('register');  // Updated
-Route::post('/register', [RegisterController::class, 'process'])->name('register.process');  // Updated
+Route::get('/register', [RegisterController::class, 'show'])->name('register');  
+Route::post('/register', [RegisterController::class, 'process'])->name('register.process');  
 
 // Payment
 Route::get('/payment', function () {
@@ -44,24 +42,42 @@ Route::post('/payment', function () {
 
 
 /* ================================================================
+   USER / MEMBER ROUTES
+================================================================ */
+Route::prefix('user')->name('user.')->group(function () {
+
+    // Dashboard
+    Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
+
+    // My Profile
+    Route::get('/profile',        [UserController::class, 'profile'])      ->name('profile');
+    Route::put('/profile',        [UserController::class, 'updateProfile'])->name('profile.update');
+    Route::put('/profile/skills', [UserController::class, 'updateSkills']) ->name('profile.skills');
+
+    // Notifications
+    Route::get ('/notifications',           [UserController::class, 'notifications'])->name('notifications');
+    Route::post('/notifications/{id}/read', [UserController::class, 'markRead'])     ->name('notifications.read');
+    Route::post('/notifications/read-all',  [UserController::class, 'markAllRead'])  ->name('notifications.readAll');
+
+    // My Courses
+    Route::get('/courses', [UserController::class, 'courses'])->name('courses');
+
+    // Settings
+    Route::get   ('/settings',              [UserController::class, 'settings'])          ->name('settings');
+    Route::put   ('/settings/password',     [UserController::class, 'updatePassword'])    ->name('settings.password');
+    Route::put   ('/settings/notifications',[UserController::class, 'updateNotifPrefs'])  ->name('settings.notifications');
+    Route::delete('/settings/delete',       [UserController::class, 'deleteAccount'])     ->name('settings.delete');
+
+});
+
+
+/* ================================================================
    ADMIN ROUTES
 ================================================================ */
 Route::prefix('admin')->name('admin.')->group(function () {
-    // ->middleware(['auth', 'is_admin']) ← uncomment when auth is built
 
     // ---- DASHBOARD ----
-    Route::get('/', function () {
-        return view('admin.dashboard', [
-            'memberCount'          => 0,
-            'pendingCount'         => 0,
-            'courseCount'          => 0,
-            'revenueThisMonth'     => 0,
-            'newMembersThisMonth'  => 0,
-            'monthlyRegistrations' => collect(array_map(fn($m) => ['label' => $m, 'percent' => rand(20,100), 'count' => rand(1,10)], ['Jan','Feb','Mar','Apr','May','Jun','Jul'])),
-            'recentActivity'       => [],
-            'recentMembers'        => collect([]),
-        ]);
-    })->name('dashboard');
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
     // ---- OFFICIAL MEMBERS ----
     Route::get('/members', function () {
@@ -141,4 +157,5 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get   ('/settings/export-members',[App\Http\Controllers\Admin\SettingsController::class, 'exportMembers'])       ->name('settings.exportMembers');
     Route::get   ('/settings/backup',        [App\Http\Controllers\Admin\SettingsController::class, 'backup'])              ->name('settings.backup');
     Route::delete('/settings/clear-rejected',[App\Http\Controllers\Admin\SettingsController::class, 'clearRejected'])       ->name('settings.clearRejected');
+
 });
